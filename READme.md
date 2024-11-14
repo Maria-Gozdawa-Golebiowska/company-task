@@ -15,8 +15,8 @@ Aplikacja przekształca artykuły zapisane w pliku tekstowym za pomocą IA na ko
 
 Aby sklonować repozytorium, uruchom poniższą komendę w terminalu:
 
-git clone https://github.com/Maria-Gozdawa-Golebiowska/oxido
-cd oxido
+git clone https://github.com/Maria-Gozdawa-Golebiowska/company-task
+cd company-task
 
 ## Instalacja zaleznosci
 
