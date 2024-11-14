@@ -15,15 +15,15 @@ Aplikacja przekształca artykuły zapisane w pliku tekstowym za pomocą IA na ko
 
 Aby sklonować repozytorium, uruchom poniższą komendę w terminalu:
 
-git clone https://github.com/Maria-Gozdawa-Golebiowska/company-task
-cd company-task
+- git clone https://github.com/Maria-Gozdawa-Golebiowska/company-task
+- cd company-task
 
 ## Instalacja zaleznosci
 
 W głównym katalogu projektu zainstaluj wymagane pakiety, uruchamiając:
 
-npm init -y 
-npm install dotenv axios atob
+- npm init -y 
+- npm install dotenv axios atob
 
 ## Przygotowanie pliku artykułu
 Aplikacja wymaga pliku z artykułem, który ma zostać przetworzony na HTML. 
