@@ -1,6 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
+const atob = require('atob')
 
 const API_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-3.5-turbo';
@@ -12,8 +13,9 @@ fs.readFile('artykul.txt', 'utf8', (err, data) => {
         console.error('Błąd podczas odczytu pliku:', err);
         return;
     }
+    const encodedApiKey = process.env.OPENAI_API_KEY;
 
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey = atob(encodedApiKey);
 
     const prompt = `Przekształć poniższy artykuł w kod HTML z odpowiednimi tagami. Dodaj placeholdery dla obrazków w nagłówkach. 
     Każdy obrazek powinien mieć tag <img src="${IMAGE_PLACEHOLDER}" alt="..." /> z dokładnym i szczegółowym promptem, 
