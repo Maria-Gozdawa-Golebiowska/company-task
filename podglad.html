@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szablon artykułu</title>
+    <style>
+        body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(228deg, #c004eb, #4710f6, #406b7d, #a4479a, #021b9d);
+            background-size: 300% 300%;
+            animation: gradient-animation 40s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 90%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1, h2, h3, p {
+            opacity: 0; 
+            animation: fadeIn 3s ease-in forwards; 
+        }
+
+        figcaption {
+            text-align: left;
+            font-size: smaller;
+            color: #848484;
+        }
+
+        h1 {
+            color: #848484;
+            font-size: 15px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #d7dfe2;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 66px;
+            animation-delay: 1s;
+            opacity: 0;
+            animation: fadeIn 3s ease-in 1s forwards;
+            transition: transform 0.3s ease, font-size 0.3s ease;
+        }
+
+        h3:hover {
+            transform: scale(1.1); 
+            font-size: 22px; 
+        }
+        
+
+        h2 {
+            color: #d7dfe2;
+            text-transform: uppercase;
+            font-size: 33px;
+            text-align: center;
+            letter-spacing: 2px;
+            animation-delay: 1s;
+            text-shadow: 7px 5px 4px rgba(167, 59, 221, 0.3)
+        }
+
+        p {
+            color: #bacdd5;
+            margin: 12px 0;
+            text-align: justify;
+            line-height: 32px;
+            animation-delay: 2s;
+        }
+
+        img {
+            width: 100%; 
+            max-width: 500px;
+            height: auto;
+            animation-delay: 3s; 
+            display: block;
+
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0; 
+            }
+            100% {
+                opacity: 1; 
+            }
+        }
+        
+        
+        #article-content {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #1a2a4f;
+            color: #e0e6ff;
+            padding: 30px 60px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .btn:hover {
+            background-color: #233c72;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(35, 60, 114, 0.4);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .btn:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+    <script>
+        function wstawArtykul() {
+            const articleContent = `
+                <h2>Sztuczna inteligencja: wpływ i wyzwania</h2>
+                <img src="image_placeholder.jpg" alt="Ilustracja sztucznej inteligencji w codziennym życiu" />
+                <figcaption>Ilustracja sztucznej inteligencji w codziennym życiu.</figcaption>
+                <p>Sztuczna inteligencja to dziedzina nauki i technologii zajmująca się tworzeniem maszyn i programów zdolnych do wykonywania zadań wymagających ludzkiej inteligencji, takich jak uczenie się, rozumienie języka naturalnego i podejmowanie decyzji. AI stała się integralną częścią naszego codziennego życia, od asystentów głosowych w smartfonach, jak Siri czy Google Assistant, po systemy rekomendacyjne na platformach streamingowych, takich jak Netflix czy Spotify. Wspiera nas w planowaniu tras, automatyzacji domowych urządzeń oraz w komunikacji. Obecnie jest o niej bardzo głośno choćby za sprawą dużych modeli językowych, jak ChatGPT.</p>
+
+                <h3>Rozwój uczenia maszynowego i głębokiego uczenia</h3>
+                <img src="image_placeholder.jpg" alt="Sieć neuronowa analizująca dane" />
+                <figcaption>Sieć neuronowa analizująca ogromne ilości danych w obszarze rozpoznawania obrazów.</figcaption>
+                <p>Rozwój uczenia maszynowego i głębokiego uczenia umożliwił tworzenie zaawansowanych modeli, które potrafią samodzielnie rozwiązywać skomplikowane problemy. Sieci neuronowe analizują ogromne ilości danych w obszarach takich jak rozpoznawanie obrazów czy przetwarzanie języka naturalnego. Dzięki temu AI nie tylko przetwarza dane, ale także podejmuje decyzje, wcześniej zarezerwowane dla ludzi.</p>
+
+                <h3>Wyzwania etyczne i społeczne</h3>
+                <img src="image_placeholder.jpg" alt="Etyczne wyzwania związane z sztuczną inteligencją" />
+                <figcaption>Etyczne wyzwania związane z rozwojem sztucznej inteligencji.</figcaption>
+                <p>Kluczowym wyzwaniem jest zapewnienie etycznego i odpowiedzialnego rozwoju AI. Należy zwracać uwagę na uprzedzenia w danych treningowych, które mogą prowadzić do dyskryminacji, oraz na wpływ AI na prywatność i nierówności społeczne. Ważne jest opracowanie ram etycznych i mechanizmów nadzoru regulujących rozwój i wdrażanie AI, a także włączanie różnych grup społecznych w ten proces. Transparentność działań firm i instytucji może pomóc w budowaniu zaufania do technologii.</p>
+
+                <h3>Automatyzacja i przyszłość rynku pracy</h3>
+                <img src="image_placeholder.jpg" alt="Automatyzacja pracy dzięki sztucznej inteligencji" />
+                <figcaption>Automatyzacja pracy dzięki wsparciu sztucznej inteligencji.</figcaption>
+                <p>Automatyzacja procesów dzięki AI przynosi korzyści w postaci zwiększonej efektywności i redukcji kosztów. Jednak istnieją obawy dotyczące wpływu na rynek pracy i potencjalnego zastąpienia ludzi przez maszyny. Kluczowe jest przemyślane podejście do transformacji rynku pracy, inwestycja w edukację i przekwalifikowanie pracowników, aby mogli oni znaleźć nowe role w gospodarce przyszłości.</p>
+
+                <p>Specjaliści powinni być gotowi na ciągłe doskonalenie swoich umiejętności, ucząc się m.in. zasad działania algorytmów AI. Przyszłość pracy będzie wymagać nie tylko umiejętności technicznych, ale także kompetencji miękkich, takich jak kreatywność i zdolność rozwiązywania problemów.</p>
+
+                <p>Nasza zdolność do adaptacji i innowacji zdecyduje o tym, jak AI wpłynie na przyszłość ludzkości. Wspólnie możemy kształtować tę przyszłość, wykorzystując AI dla dobra wszystkich.</p>
+
+                <p><em>*Tekst opracowany przez AI. W Oxido nie mamy aż tak cukierkowego spojrzenia na sztuczną inteligencję... ;)</em></p>
+            `;
+            document.getElementById('article-content').innerHTML = articleContent;
+            document.querySelector('.btn').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Podgląd artykułu</h1>
+        <div id="article-content"></div>
+        <button class="btn" onclick="wstawArtykul()">Wstaw artykuł</button>
+    </div>
+</body>
+</html>
